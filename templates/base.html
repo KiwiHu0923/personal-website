@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>William Hu | Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}" />
+</head>
+<body>
+    {% block content %}
+    <header class="header">
+        <h1>William Hu</h1>
+
+        <nav clsss="nav">                                           {# 用url_for的方法動態生成url可節省維護成本 #}
+            <a href="{{ url_for('home') }}" class="nav__link {{'nav__link--active' if request.path == url_for('home') }}">  {# if we click the item(request.path), the class name will change and then we can set the css type #}    
+                Projects
+            </a>                {# url_for('function name in __init__.py')#}
+
+            <a href="{{ url_for('about') }}" class="nav__link {{'nav__link--active' if request.path == url_for('about') }}"> 
+                About
+            </a>
+
+            {# <a href="{{ url_for('contact') }}" class="nav__link {{'nav__link--active' if request.path == url_for('contact') }}"> 
+                Contact
+            </a> #}
+
+            <a href="{{ url_for('resume') }}" class="nav__link" target="_blank"> {#target: open the link in a new blank page#}
+                Resume
+            </a>
+        </nav>
+    </header>
+    {% endblock %}
+    {# --------------------------------------------------------------- #}
+    {% block footer %}
+    <footer class="footer">
+        <div class="footer__content">
+            <a class="footer__item" href="mailto:cj6fu6jo25@gmail.com" target="_blank">EMAIL</a>
+            <a class="footer__item" href="https://www.linkedin.com/in/william-hu-922261247" target="_blank">LINKEDIN</a>
+        </div>
+    </footer>
+    {% endblock %}
+</body>
+</html>

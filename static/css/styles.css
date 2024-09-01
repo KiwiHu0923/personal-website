@@ -1,0 +1,347 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    font-family: Lato, "sans-serif";
+}
+
+body {
+    margin-top: 80px;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    min-height: 100vh;
+}
+
+.header {
+    text-align: center;
+}
+
+.nav {
+    margin-bottom: 3rem;
+    font-size: 1.2rem;
+}
+
+.nav__link {
+    text-decoration: none;
+    color: #1c2023;
+}
+
+/* make the nav__link with margin-right except for the last one */
+.nav__link:not(:last-of-type) {
+    margin-right: 2.5rem;
+}
+
+.nav__link--active,
+.nav__link:hover {
+    font-weight: bold;
+}
+
+.main {
+    margin: 0 auto;
+    /*Use "display:flex" would make the page into a flex box, meaning the container size will be determined by the size of child item*/
+    /*For project_movie-tracking.html, we want the image size was contrained by item 'project', so we set the display to "flex"*/
+    /*So that the "main" size will be determined by item'project', and so as the image size in project_movie-tracking.html */
+
+    display: flex;
+    flex:1;
+    /* justify-content: center; */
+}
+
+.main--error {
+    flex-direction: column ; /*Because its parent container (.main) was set to display:flex, and the default direction is "row", so we need to give it back to "column" setting*/
+    max-width: 500px;
+    /* padding: 0 1rem; */
+    line-height: 2.25rem;
+    font-size: 20px;
+}
+
+.main--about {
+    display: flex;
+    flex-direction: row;
+    margin: 0 auto;
+    align-items: center;
+    flex: 1;
+    max-width: 1000px;
+
+    --image-height: 400px;
+}
+
+
+.headshot_image {
+    width: 300px;
+    height: var(--image-height);
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 30px 0px;
+    margin-left: 30px;
+    border:4px solid black;
+}
+
+.vertical-line {
+    border-left: 2px solid black;
+    margin: 0 30px;
+    height: var(--image-height);
+    align-items: center;
+}
+
+.about__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex:1;
+    height: var(--image-height);
+
+    font-size: 1.2rem;
+    line-height: 2.25rem;
+}
+
+.about__link-item {
+    text-decoration: none;
+    font-weight: bold;
+    color: inherit;
+}
+
+.about__link-item:hover {
+    box-shadow: 0 3px 0 0 #4cafda;
+}
+
+/* ------------------------------------------------------------------------------- */
+
+.footer {
+    background-color: #323f43;
+    padding: 40px 0;
+    margin-top: 50px;
+    border-top:4px solid black;
+    color: white;
+    font-size: 15px;
+    flex-shrink: 0;
+}
+
+.footer__content {
+    display: flex;
+    max-width: 500px;
+    margin: 0 auto;
+    flex-direction: row;
+    justify-content: center;
+}
+
+
+.footer__item {
+    margin-right: 50px;
+    margin-top: 10px;
+    color: inherit;
+    text-decoration: none;
+}
+
+.footer__item:hover {
+    text-decoration: underline;
+}
+
+/* ------------------------------------------------------------------ */
+
+
+.contact {
+    display: flex;
+    justify-content: center;    /*justify-content: put the whole element into the center of contact;*/
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+    text-align: center;         /*text-align: put all text in each element into its element's center*/
+}
+
+.contact__details {
+    margin-left: 1ch;           /*leave contact__deatail with 1 character distance*/
+}
+
+.contact__link {
+    color: black;
+    text-decoration: none;
+    box-shadow: 0 3px 0 0 #4cafda;
+}
+
+.contact__link:hover {
+    color: #4cafda;
+}
+
+.projects {
+    display: grid;
+    grid-template-columns: 1fr;
+    column-gap: 1.25rem;
+    justify-content: center;    /* make the content of the item in project all centered in the grid view*/
+    justify-items: center;      /* make the item in project all centered in the grid view*/
+    max-width: 21.875rem;
+    margin: 0 auto;             /* make the project centered in the page*/
+}
+
+@media (min-width: 48.75em ) {
+    .project {
+        grid-template-columns: repeat(2, 1fr);
+        max-width: 45rem;
+    }
+}
+
+@media (min-width: 70em) {
+    .project {
+        grid-template-columns: repeat(3, 1fr);
+        max-width: 68rem;
+    }
+}
+
+.project-card {
+    padding: 0.75rem 0;        /*so that the content of each project-card won't close in the edge*/
+}
+
+.project-card__image {
+    max-width: 100%;           /*becasue sometimes the image is so large that come out of the grid*/
+    margin-bottom: 1rem;
+    transition: transform 0.2s ease-in-out;     /* make the translateY in image card a little delay */
+}
+
+.project-card__meta {
+    padding: 0 1.25rem
+}
+
+.project-card__name {
+    margin: 0;                  /*eliminate the space of the item*/
+    font-size: 1.5rem;
+    line-height: 2.25rem;
+    color: #1c2023;
+}
+
+.project-card:hover .project-card__image {
+    transform: translateY(-0.5rem);         /*when you hover over the card, the image card will move a liitle bit upward*/
+}
+
+.project-card:hover .project-card__name {
+    text-decoration: underline;
+}
+
+.categories {
+    display: flex;                  /*Align the items in a row*/
+    padding: 0;
+    margin: 0 0 0.75rem;            /*up left/right and bottom, so we set the margin-bottom 0.75rem*/
+    color: #3d84a3;
+    list-style: none;               /*eliminate the bulletin point in front of each category item*/
+    text-transform: uppercase;      /*change all content into uppercase*/
+    font-size: 1.1rem;
+    letter-spacing: 0.075rem;
+}
+
+.categories__tag:not(:last-of-type)::after {    /* Apply all modifications below except for the last one. Also, all modifications are applied "after" the element (if we don't use the "::after", the margin will appear both in front and back of the first item)*/
+    content: "|";                               /* the "::after" create a pseudo element after the item, so the content means we will create "|" after the item */
+    margin: 0 0.25rem;                          /*up/down left/right: That's why we need "::after" to have margin only at the right side of each item*/
+}
+
+.hero {
+    width: 100%;                    /*Always take up whatever space is available without affecting the container size */
+    margin-bottom: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.project {
+    display: flex;
+    flex-direction: column;
+    max-width: 50rem;
+    font-size: 1.2rem;
+    padding: 0 0.1rem;
+}
+
+@media (min-width:48.75em) {
+    .project {
+        flex-direction: row;
+        padding: 0;
+    }
+}
+
+.project__main {
+    margin-bottom: 1rem;
+    line-height: 150%;
+    max-width: 80%;
+}
+
+.project__heading {
+    margin: 0;
+    font-size: 2rem;
+    line-height: 150%;
+}
+
+.project__side-section {
+    flex: 1;
+}
+
+.main__section-imagegroup {
+    display: flex;
+    justify-content:space-evenly;
+    max-width: inherit;
+    margin-bottom: 0px; 
+}
+
+.main__section-imagegroup img {
+    width: 48%; 
+    margin-bottom: 10px; 
+    margin-right: 5px;
+    border-radius: 5%;
+}
+
+.main__section {
+    margin-bottom: 50px;
+}
+
+.main__section-title {
+    font-style: italic;
+}
+
+.project__heading--meta {
+    font-size: inherit;     /*.project__heading--meta shares the name of "project__heading", so it will have the same font-size with element "project__heading(2rem)" */
+    /* margin-bottom: 1rem;    if we set font-size:inherit, it will share the same font-size with its parent (project__meta--group and project), and the font-size will be 1.2rem */
+}
+
+.tmdb__link {
+    text-decoration: none;
+    color:#3d84a3;
+}
+
+.tmdb__link:hover {
+    text-decoration: underline;
+}
+
+.project__meta-group {
+    padding: 1rem;
+    background-color: #d4eafa;
+    border-radius: 6px;
+}
+
+.technology-list {
+    list-style: none;
+    margin-top: 10px;
+    margin-bottom: 0px;
+    padding-left: 0;
+    line-height: 1.75rem;
+}
+
+.technology-list__item {
+    margin-top: 5px;
+}
+
+.technology-list__item::before {
+    content: "";
+    display: inline-block;
+    width: 1rem;
+    height: 1rem;
+    background-image: url("/static/img/list-check.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-right: 0.5rem;
+    transform: translateY(2px);
+}
+
+
+.u-bare-link { 
+    text-decoration: none;
+}
+

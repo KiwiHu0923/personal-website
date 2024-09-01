@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+    {{super()}}
+    <main class="main--about">
+        <img class="headshot_image" src="/static/img/headshot2.png"/>
+        <div class="vertical-line"></div>
+        <div class="about__content">
+            <p>
+                Hi, welcome to my personal website. I’m William. 
+                I obtained my bachelor degree and master degree in Biology from
+                <a class="about__link-item" href="https://ibs.ntu.edu.tw/home.jsp?lang=en">National Taiwan University (NTU)</a>
+                and 
+                <a class="about__link-item" href="https://www.bio.ncku.edu.tw/english">National Cheng Kung University (NCKU)</a>
+                in Taiwan.
+                And now I am a MSCS student at 
+                <a class="about__link-item" href="https://viterbigradadmission.usc.edu/programs/masters/msprograms/computer-science/ms-cs-scientists-engineers/">University of Southern California (USC)</a>
+                in the United States, focusing on learning data science and software engineering. 
+                I'll be sharing my CS-related projects with you all here.
+            </p>
+            <p>
+                I have a broad interest in both biology and computer science, and I hope to pursue a career that combines these two
+                fields (e.g., AI, computational biology, bioinformatics...) and having fun of learning new knowledges.
+            </p>
+        </div>
+        
+    </main>
+{% endblock %}
+
+{% block footer %}
+    {{ super() }}
+{% endblock %}

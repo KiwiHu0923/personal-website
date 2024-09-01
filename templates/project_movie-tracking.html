@@ -1,0 +1,127 @@
+{% extends 'base.html' %}
+{% block content %}
+    {{super()}}
+    <main class="main main--project">
+        <div>
+            <img
+                class="hero"
+                src="{{ url_for('static', filename=project['hero']) }}"
+                alt="A hand holding a pen, about to write something in a project planner."
+            />
+            <article class="project">
+                <article class="project__main">
+                    <h2 class="project__heading">{{ project['name'] }}</h2>
+                    <h3>Overview</h3>
+                    <p>
+                        This app was designed to meet the specific needs of tracking and managing TV series and movies.
+                        It offers comprehensize and detailed recording and categorization capabilities, 
+                        focusing on aspects such as OTT platforms, countries, actors and more.
+                    </p>
+                    <p>
+                        The architecture of the app is designed to ensure efficient database management, tracking and recording viewing habits.
+                    </p>
+
+                    <h3>Features</h3>
+                    <article>
+                        <ul>
+                            <li class="main__section">
+                                <div class="main__section-title">Comprehensive Media Categories and Description</div>
+                                <div class="main__section-imagegroup">
+                                    <img src="{{ url_for('static', filename='img/content/f1.jpg') }}">
+                                    <img src="{{ url_for('static', filename='img/content/f2.jpg') }}">
+                                </div>
+                                <section class="main__section-content">
+                                    <p>
+                                        First, the homepage is divided into Shows, Movies, Upcoming Shows, and Upcoming Movies, allowing
+                                        users to easily see the information, ratings and upcoming releases.
+                                    </p>
+                                    <p>
+                                        User can also view detailed media description, including posters, OTT platforms, cast lists, release date and regions and more.
+                                    </p>
+                                </section>
+                            </li>
+
+                            <li class="main__section">
+                                <div class="main__section-title">Cursomized Watchlists, Ratings, and Viewing Statistics</div>
+                                <div class="main__section-imagegroup">
+                                    <img src="{{ url_for('static', filename='img/content/f8.jpg') }}">
+                                    <img src="{{ url_for('static', filename='img/content/f3.jpg') }}">
+                                </div>
+                                <section class="main__section-content">
+                                    <p>
+                                        The app offers a service to add unwatched media to a watchlist and allows users to rate each movie they have already seen.
+                                    </p>
+                                    <p>
+                                        Additionally, the app automatically ranks actors based on the number of times they have appeared in the movies one have watched.
+                                    </p>
+                                </section>
+                            </li>
+
+                            <li class="main__section">
+                                <div class="main__section-title">Dynamic Calendar View for Watched and Upcoming Media</div>
+                                <div class="main__section-imagegroup">
+                                    <img src="{{ url_for('static', filename='img/content/f4.jpg') }}">
+                                </div>
+                                <section class="main__section-content">
+                                    <p>
+                                        A scrollable calendar view presents daily viewing records and 
+                                        detailed information about upcoming movies, allowing users to 
+                                        easily navigate through their watch history and future releases.
+                                    </p>
+                                </section>
+                            </li>
+
+                            <li class="main__section">
+                                <div class="main__section-title">Accurate Viewing Time Statistics</div>
+                                <div class="main__section-imagegroup">
+                                    <img src="{{ url_for('static', filename='img/content/f5.jpg') }}">
+                                    <img src="{{ url_for('static', filename='img/content/f6.jpg') }}">
+                                    <img src="{{ url_for('static', filename='img/content/f7.jpg') }}">
+                                </div>
+                                <section class="main__section-content">
+                                    <p>
+                                        The app provides precise statistics on daily, monthly, and yearly viewing times, 
+                                        as well as comparisons of viewing times across different streaming platforms.
+                                    </p>
+                                </section>
+                            </li>
+                        </ul>
+                    </article>
+
+                    <h3>Architecture</h3>
+                    <ol>
+                        <li>
+                            <p>Data Management</p>
+                            <p>MySQL is used as a local database for storing and manipulating data.
+                                For example, rating media, tracking viewing habits, and organizing playlists and more.</p>
+                        </li>
+                        <li>
+                            <p>Call SQL query in SwiftUI</p>
+                            <p>Write SQL queries in JavaScript so that I can leverage its flexibility as the intermediary between the app and database, to handle database operation in SwiftUI.</p>
+                        </li>
+                        <li>
+                            <p>Fetch media information from website</p>
+                            <p>The app integrates with the TMDB API to fetch a wide range of media content from the <a class="tmdb__link" href="https://www.themoviedb.org/" target="_blank">The Movie Database website.</a> </p>
+                        </li>
+                    </ol>
+                </article>
+
+                <section class="project__side-section">
+                    <article class="project__meta-group">
+                        <h3 class="project__heading project__heading--meta">Technologies</h3>
+
+                        <ul class="technology-list">
+                            <li class="technology-list__item">SwiftUI</li>
+                            <li class="technology-list__item">Express.js</li>
+                            <li class="technology-list__item">MySQL</li>
+                        </ul>
+                    </article>
+                </section> 
+            </article>
+        </div>
+    </main>
+{% endblock %}
+
+{% block footer %}
+    {{ super() }}
+{% endblock %}
