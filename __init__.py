@@ -27,7 +27,7 @@ def contact():
 
 @app.route("/resume")
 def resume():
-    return send_from_directory('static', 'Resume_Chi-Wei Hu.pdf')
+    return send_from_directory('static', 'Resume.pdf')
 
 @app.route("/project/<string:slug>")
 def project(slug):
