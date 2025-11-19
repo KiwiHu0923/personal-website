@@ -1,0 +1,9 @@
+[
+    {
+        "name": "Movie Tracking app with SwiftUI and MySQL",
+        "thumb": "img/movie-tracking.svg",
+        "hero": "img/movie-tracking-hero.png",
+        "categories": ["SwiftUI", "web"],
+        "slug": "movie-tracking"
+    }
+]

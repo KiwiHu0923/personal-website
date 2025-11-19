@@ -1,23 +1,17 @@
 import os
 from flask import Flask, render_template, abort, send_from_directory
-from pymongo import MongoClient         # create a client side session that we can use to connect mongoDB
 from dotenv import load_dotenv
-import certifi
+import json
 
 load_dotenv()       # go into the .env file and populate the environment variable
 
-
 app = Flask(__name__)
-
-client = MongoClient(
-    os.getenv("MONGODB_URI"),
-    tlsCAFile=certifi.where()
-)
-app.db = client.portfolio
 
 # lazy load projects from the database
 def get_projects():
-    return list(app.db.projects.find({}))
+    json_path = os.path.join(os.path.dirname(__file__), "projects.json")
+    with open(json_path) as f:
+        return json.load(f)
 
 def get_slug_to_project(projects):
     return {p["slug"]: p for p in projects}
